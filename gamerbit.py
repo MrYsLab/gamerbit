@@ -33,6 +33,27 @@ from microbit import pin0, pin1, pin2, pin8,\
 
 
 class GamerBit:
+    """
+    This class supports the Sparkfun gamer:bit board.
+    When instantiating, you must specify a callback function
+    that will receive a state change report when a button is pressed
+    or released.
+
+    A callback report is a dictionary that contains elements for all pins
+    that have changed state. The keys for this report are:
+    'pin0', 'pin1', 'pin2', 'pin8', 'pin12', 'pin16', 'button_a', 'button_b'
+
+    Reports are only generated when there is a state change, allowing you to
+    craft event driven applications.
+
+    Be cautious in crafting your callback function, since it is a blocking
+    call. Keep it as short as possible.
+
+    If you wish to receive notification of multiple buttons being pressed
+    simultaneously, increast the scans parameter to a value where multiple
+    button presses are being reported. For example, to get notification of
+    2 buttons being pressed simultaneously, set scans to 4.
+    """
     def __init__(self, callback, scans=1):
         """
         Set the pullups for the on-board switches.
