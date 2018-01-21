@@ -29,11 +29,9 @@ class GamerBit:
     if self.callback:
      self.callback(report)
 
-
 def my_callback(report):
     print('number of elements', len(report))
     for key in report:
         print(key, report[key])
-
 
 gb = GamerBit(my_callback, 5)

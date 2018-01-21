@@ -1,22 +1,17 @@
-# This is a work in progress! Use At Your Own RISK
-
-## A micro:bit MicroPython Class To Control The  [Sparkfun gamer:bit Board](https://www.sparkfun.com/products/14215)
+# A micro:bit MicroPython Class To Control The  [SparkFun gamer:bit Board](https://www.sparkfun.com/products/14215)
 ![logo](https://raw.github.com/MrYsLab/gamerbit/master/images/gamer_bit.png)
 
 
-## gamerbit.py
-The GamerBit class provides an easy to use Python interface for the Sparkfun gamer:bit board.
-It contains its own self-starting event loop that monitors 
-state changes for all the gamer:bit buttons, including the *Poke home connectors* 
+The GamerBit class, [gamer_bit.py](https://github.com/MrYsLab/gamerbit/blob/master/gamer_bit.py), 
+provides an easy to use Python interface for the SparkFun gamer:bit board.
+It maintains its own self-starting event loop that monitors 
+state changes for all of the gamer:bit buttons, including the *Poke home connectors* 
 used for external inputs. 
 
-It uses an event driven pattern that only sends changes upon a state detection and frees
-your application from having to poll the individual pins.
+When the event loop detects a state change, it forms a report and sends this report
+to a callback function that was specified when GamerBit was instantiated.
 
-To receive notification of state changes, you must specify a callback
-function when instantiating the GamerBit class. A callback function must be specified when GamerBit is
-instantiated.
-
+# gamer_bit.py
 ```
 # GamerBit API:
 class GamerBit:
@@ -40,12 +35,11 @@ class GamerBit:
     Reports are only generated when there is a state change, allowing you to
     craft event driven applications.
     
-
     Be cautious in crafting your callback function, since it is a blocking
     call. Keep it as short as possible.
 
     If you wish to receive notification of multiple buttons being pressed
-    simultaneously, increast the scans parameter to a value where multiple
+    simultaneously, increase the "scans" parameter to a value where multiple
     button presses are being reported. For example, to get notification of
     2 buttons being pressed simultaneously, set scans to 4.
     
