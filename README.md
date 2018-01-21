@@ -1,7 +1,7 @@
 # This is a work in progress! Use At Your Own Caution
 
 ## A micro:bit MicroPython Class To Control The  [Sparkfun gamer:bit Board](https://www.sparkfun.com/products/14215)
-![logo](https://raw.github.com/MrYsLab/gamerbit/master/images/gamer_bit.jpg)
+![logo](https://raw.github.com/MrYsLab/gamerbit/master/images/gamer_bit.png)
 
 
 ## gamerbit.py
